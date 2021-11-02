@@ -3,12 +3,12 @@ import math
 
 def z_1_a(reliability_m, time_m, time_r):
     '''
-    Deduces probability of survival at point in time.
+    Deduces probability of survival up to requested point in time.
     
     Parameters:
     reliability_m (float): measured reliability
     time_m (float): time of measurement
-    time_r (float): request time
+    time_r (float): requested time
 
     Returns:
     float: probability of survival up to time_r
@@ -18,16 +18,16 @@ def z_1_a(reliability_m, time_m, time_r):
 
 def z_1_b(reliability_m, time_m, time_survived, time_r):
     '''
-    Deduces probability of survival at point in time. Takes already survived time into account.
+    Deduces probability of survival up to requested point in time. Takes already survived time into account.
 
     Parameters:
     reliability_m (float): measured reliability
     time_m (float): time of measurement
     time_survived (float): point up to which the machine has survived
-    time_r (float): request time
+    time_r (float): requested time
 
     Returns:
-    float: probability of survival up to time_r
+    float: probability of survival up to requested point in time 
     '''
     rel_f = utils.deduce_reliability_function(time_m, reliability_m)
     if time_r < time_survived:
@@ -57,10 +57,10 @@ def z_3(failure_rate, time_survived, time_r):
     Parameters:
     filure_rate (float): failure rate of an item
     time_survived (float): time the item has survived
-    time_r (float): request time
+    time_r (float): requested time
 
     Returns:
-    float: probability of survival up to request time
+    float: probability of survival up to requested time
     '''
     
     rel_f = utils.make_reliability_function(failure_rate)
